@@ -34,7 +34,7 @@ cd ../client && npm install
 # 3. Seed the role/permission catalog (idempotent, safe to re-run)
 cd server && npm run seed:rbac
 
-# 4. Create the one Super Admin account (Ezechris / ezeokon070@gmail.com)
+# 4. Create the one Super Admin account (Ezechris / ezechrissampson@gmail.com / Password: Password1@)
 npm run seed:super-admin
 ```
 

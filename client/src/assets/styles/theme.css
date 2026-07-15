@@ -76,3 +76,178 @@ input:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
+
+/* ============================================================
+   Dashboard app shell: sidebar (desktop fixed / mobile off-canvas) + topbar
+   ============================================================ */
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-shell-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Sidebar ---- */
+.app-sidebar {
+  width: 264px;
+  flex-shrink: 0;
+  background-color: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.app-sidebar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 1.1rem 1.15rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.app-sidebar-brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary);
+  color: #fff;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+
+.app-sidebar-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.9rem 0.75rem;
+}
+
+.app-sidebar-section + .app-sidebar-section {
+  margin-top: 1.4rem;
+}
+
+.app-sidebar-heading {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  padding: 0 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.app-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+.app-nav-link i {
+  font-size: 1rem;
+  width: 1.1rem;
+  text-align: center;
+  color: var(--color-text-secondary);
+  transition: color 0.12s ease;
+}
+
+.app-nav-link:hover {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+.app-nav-link.active {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  font-weight: 600;
+}
+
+.app-nav-link.active i {
+  color: var(--color-primary-dark);
+}
+
+.app-sidebar-footer {
+  padding: 0.9rem 1.15rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.app-sidebar-backdrop {
+  display: none;
+}
+
+/* ---- Topbar ---- */
+.app-topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1.25rem;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.app-topbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.app-content {
+  flex: 1;
+  padding: 1.5rem;
+  background-color: var(--color-bg);
+}
+
+/* ---- Mobile: off-canvas sidebar ---- */
+@media (max-width: 991.98px) {
+  .app-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: var(--shadow-md);
+  }
+
+  .app-sidebar.show {
+    transform: translateX(0);
+  }
+
+  .app-sidebar-backdrop.show {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(17, 24, 39, 0.45);
+    z-index: 1040;
+  }
+
+  .app-content {
+    padding: 1.1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .app-sidebar-brand .btn-close {
+    display: none;
+  }
+}

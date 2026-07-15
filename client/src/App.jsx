@@ -17,6 +17,15 @@ import ResendVerification from './pages/ResendVerification.jsx';
 import ForgotPassword from './pages/ForgotPassword.jsx';
 import ResetPassword from './pages/ResetPassword.jsx';
 import Dashboard from './pages/Dashboard.jsx';
+import TraderPage from './pages/dashboard/TraderPage.jsx';
+import ContentPage from './pages/dashboard/ContentPage.jsx';
+import ModerationPage from './pages/dashboard/ModerationPage.jsx';
+import ApprovalsPage from './pages/dashboard/ApprovalsPage.jsx';
+import SupportPage from './pages/dashboard/SupportPage.jsx';
+import AnalyticsPage from './pages/dashboard/AnalyticsPage.jsx';
+import UsersPage from './pages/dashboard/UsersPage.jsx';
+import BillingPage from './pages/dashboard/BillingPage.jsx';
+import SecurityControlPage from './pages/dashboard/SecurityControlPage.jsx';
 import EditProfile from './pages/EditProfile.jsx';
 import Security from './pages/Security.jsx';
 import ChangePassword from './pages/ChangePassword.jsx';
@@ -56,6 +65,15 @@ export default function App() {
               {/* Protected */}
               <Route element={<ProtectedRoute />}>
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/dashboard/trader" element={<TraderPage />} />
+                <Route path="/dashboard/content" element={<ContentPage />} />
+                <Route path="/dashboard/moderation" element={<ModerationPage />} />
+                <Route path="/dashboard/approvals" element={<ApprovalsPage />} />
+                <Route path="/dashboard/support" element={<SupportPage />} />
+                <Route path="/dashboard/analytics" element={<AnalyticsPage />} />
+                <Route path="/dashboard/users" element={<UsersPage />} />
+                <Route path="/dashboard/billing" element={<BillingPage />} />
+                <Route path="/dashboard/security-control" element={<SecurityControlPage />} />
                 <Route path="/profile/edit" element={<EditProfile />} />
                 <Route path="/security" element={<Security />} />
                 <Route path="/security/change-password" element={<ChangePassword />} />

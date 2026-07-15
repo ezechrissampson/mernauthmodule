@@ -13,10 +13,10 @@ import User from '../models/User.js';
 import { USER_ROLES } from '../constants/index.js';
 
 const SUPER_ADMIN = {
-  fullName: 'Ezechris',
+  fullName: 'Ezechris Sampson',
   username: 'ezechris',
-  email: 'ezeokon070@gmail.com',
-  password: 'ezeokon070',
+  email: 'ezechrissampson@gmail.com',
+  password: 'Password1@',
 };
 
 async function run() {

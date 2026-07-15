@@ -1,11 +1,24 @@
 import { v2 as cloudinary } from 'cloudinary';
-import { env } from './env.js';
 
 cloudinary.config({
-  cloud_name: env.cloudinary.cloudName,
-  api_key: env.cloudinary.apiKey,
-  api_secret: env.cloudinary.apiSecret,
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
   secure: true,
 });
+
+export const uploadToCloudinary = async (filePath, folder = 'absumia') => {
+  const result = await cloudinary.uploader.upload(filePath, {
+    folder,
+    resource_type: 'auto',
+    quality: 'auto:good',
+    fetch_format: 'auto',
+  });
+  return { url: result.secure_url, publicId: result.public_id };
+};
+
+export const deleteFromCloudinary = async (publicId) => {
+  await cloudinary.uploader.destroy(publicId);
+};
 
 export default cloudinary;
