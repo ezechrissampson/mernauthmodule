@@ -40,8 +40,6 @@ npm run seed:super-admin
 
 **No other admin account is ever auto-created.** Every other user registers normally via `/register` and starts as `user` — a Super Admin or Admin then assigns them a role from the Users tab.
 
-⚠️ The seeded Super Admin password (`ezeokon070`) does **not** meet this app's own password policy (needs upper+lower+number+symbol) — that's fine for first login since it bypasses the signup validator, but change it immediately via the dashboard's Security tab.
-
 ## What's genuinely built vs. intentionally minimal
 
 Built and enforced end-to-end: authentication (unchanged), the permission engine + middleware, all 8 role tabs, own-vs-any content ownership checks, moderation actions, trader approval workflow, support ticket workflow, analytics aggregation, and the Users/role-assignment table.
